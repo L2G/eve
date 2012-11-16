@@ -1,1 +1,31 @@
-Wed, 15 Dec 2010 09:15:09 -0500
+Fri, 16 Nov 2012 09:28:24 -0800
+README.rdoc	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/errors/authentication_errors.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/errors/miscellaneous_errors.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/errors/user_input_errors.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/errors/internal_errors.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/errors.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/javascript_helper.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/api/services.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/api/connectivity.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/api/response/row.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/api/response/rowset.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/api/response/result.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/api/response.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/api/services/misc.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/api/services/corporation.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/api/services/account.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/api/services/eve.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/api/services/server.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/api/services/character.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/api/services/map.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/api/request.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/trust.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/trust/controller_helpers.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/trust/mime_types.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/trust/igb_interface.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/deprecation.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/dependencies.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/api.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve/version.rb	Fri, 16 Nov 2012 09:27:53 -0800
+lib/eve.rb	Fri, 16 Nov 2012 09:27:53 -0800
