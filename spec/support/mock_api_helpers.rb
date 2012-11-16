@@ -25,8 +25,12 @@ module MockAPIHelpers
     options = { :service => options } unless options.kind_of?(Hash)
     options.merge! more_options
     if $mock_services
-      Net::HTTP.should_receive(:post_form).any_number_of_times.and_return(mock_http_response(base,
-                                                                                             options[:service]))
+      real_http_new = Net::HTTP.method(:new)
+      Net::HTTP.stub(:new) { |*args|
+        mock_http = real_http_new.call(*args)
+        mock_http.should_receive(:request).any_number_of_times.and_return(mock_http_response(base, options[:service]))
+        mock_http
+      }
     end
     if options[:service] && eve_api(options).respond_to?(base)
       eve_api(options).send(base).send(options[:service], *(options[:args] || []))
