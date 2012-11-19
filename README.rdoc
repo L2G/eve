@@ -2,13 +2,13 @@
 
 * http://github.com/sinisterchipmunk/eve
 
-== DESCRIPTION:
+== DESCRIPTION
 
 A Ruby library for interfacing with all aspects of the EVE Online MMO. It is designed for use within a Ruby on Rails
 project, but does not require Rails as a dependency. That means there's nothing preventing you from writing a
 stand-alone application or script using this library.
 
-== QUICK START:
+== QUICK START
 
 === Including The Gem
 In Rails 3:
@@ -22,6 +22,7 @@ In Rails 2:
   config.gem 'eve', :version => "~> 1.0"
   
 In Pure Ruby:
+
   require 'rubygems'
   require 'eve'
 
@@ -82,7 +83,7 @@ Rails 3: This returns a blank page with a trust request. This behavior can be ov
     puts
   end
 
-== DETAILS:
+== DETAILS
 
 This package is divided into 3 major components, and are listed below. Click on any item to see more information and
 usage examples.
@@ -110,16 +111,16 @@ usage examples.
   * To take advantage of these helpers, your application must make use of ActionView::Base, which is the default in Ruby
     on Rails.
 
-== REQUIREMENTS:
+== REQUIREMENTS
 
   hpricot
   activesupport
 
-== INSTALL:
+== INSTALL
 
   sudo gem install eve
 
-== LICENSE:
+== LICENSE
 
 (The MIT License)
 
