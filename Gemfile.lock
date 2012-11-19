@@ -102,6 +102,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.33)
+    yard (0.8.2.1)
 
 PLATFORMS
   ruby
@@ -111,3 +112,4 @@ DEPENDENCIES
   eve!
   rails
   rspec-rails (~> 2)
+  yard (~> 0.8)
