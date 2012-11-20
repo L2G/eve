@@ -1,4 +1,4 @@
-# This information can be retrieved from http://www.eveonline.com/api/default.asp
+# You can generate and maintain your API keys at https://support.eveonline.com/api
 #
 # ! IMPORTANT !
 # Copy this file to "api_key.yml" in the same directory. This file ("sample_api_key.yml")
@@ -14,7 +14,10 @@
 # they're failing because of the data mismatch, or whether they're failing for some other
 # (more catastrophic) reason.
 #
-User ID: your_user_id
-Limited API Key: your_limited_api_key
-Full API Key: your_full_api_key
+Character Key:
+    :key_id: your_character_key_id
+    :v_code: your_character_key_vcode
+Corporation Key:
+    :key_id: your_corporation_key_id
+    :v_code: your_corporation_key_vcode
 Character ID: your_character_id
