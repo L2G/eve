@@ -9,6 +9,7 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
+    ZenTest (4.8.2)
     actionmailer (3.2.8)
       actionpack (= 3.2.8)
       mail (~> 2.4.4)
@@ -108,6 +109,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ZenTest
   bundler (~> 1)
   eve!
   rails
