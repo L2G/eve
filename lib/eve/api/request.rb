@@ -57,7 +57,12 @@ module Eve
       end
 
       def cache_key
-        @cache_key ||= ActiveSupport::Cache.expand_cache_key(post_options, @uri)
+        if @cache_key
+          @cache_key
+        else
+          md5 = Digest::MD5.base64digest(post_options.to_s)
+          @cache_key = ActiveSupport::Cache.expand_cache_key(md5, @uri)
+        end
       end
 
       private

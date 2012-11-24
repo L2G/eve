@@ -3,6 +3,7 @@ require 'nokogiri'
 require 'yaml'
 require 'sc-core-ext'
 require 'active_support/core_ext'
+require 'digest/md5'
 
 gem_path = File.expand_path(File.dirname(__FILE__), "..")
 $LOAD_PATH.unshift gem_path
