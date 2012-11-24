@@ -2,10 +2,9 @@ require 'spec_helper'
 
 describe Eve::API::Services::Character do
   context "#character_sheet" do
-    context "with a valid api key" do
-      subject { mock_service('character', 'character_sheet', :user_id => $user_id,
-                                                     :character_id => $character_id,
-                                                     :api_key => $limited_api_key) }
+    context "with a valid character API key" do
+      subject { mock_service('character', 'character_sheet',
+                  $character_api_key.merge(:character_id => $character_id)) }
 
       it "should produce character sheet info" do
         subject.character_id.should == 150337897
@@ -42,7 +41,7 @@ describe Eve::API::Services::Character do
       end
     end
 
-    context "without an api key" do
+    context "without an API key" do
       it "should raise an ArgumentError" do
         proc { mock_service('character', 'character_sheet') }.should raise_error(ArgumentError)
       end

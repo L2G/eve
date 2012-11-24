@@ -2,10 +2,9 @@ require 'spec_helper'
 
 describe Eve::API::Services::Character do
   context "#medals" do
-    context "with a valid api key" do
-      subject { mock_service('character', 'medals', :user_id => $user_id,
-                                                     :character_id => $character_id,
-                                                     :api_key => $limited_api_key) }
+    context "with a valid character API key" do
+      subject { mock_service('character', 'medals',
+                  $character_api_key.merge(:character_id => $character_id)) }
 
       it "should produce medals rowset for character" do
         subject.current_corporation.should behave_like_rowset('medalID,reason,status,issuerID,issued')
@@ -15,7 +14,7 @@ describe Eve::API::Services::Character do
       end
     end
 
-    context "without an api key" do
+    context "without an API key" do
       it "should raise an ArgumentError" do
         proc { mock_service('character', 'medals') }.should raise_error(ArgumentError)
       end

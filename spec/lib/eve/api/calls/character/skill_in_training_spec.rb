@@ -2,12 +2,11 @@ require 'spec_helper'
 
 describe Eve::API::Services::Character do
   context "#skill_in_training" do
-    context "with a valid api key" do
+    context "with a valid character API key" do
       context "with a character that is training" do
-        subject { mock_service('xml/character/skill_in_training.xml', :user_id => $user_id,
-                                                       :character_id => $character_id,
-                                                       :api_key => $limited_api_key).character.skill_in_training }
-
+        subject { mock_service('xml/character/skill_in_training.xml',
+                    $character_api_key.merge(:character_id => $character_id)).
+                    character.skill_in_training }
 
         it "should return skill training information" do
           subject.current_tq_time.should == Time.parse('2008-08-17 06:43:00 +0000')
@@ -22,10 +21,9 @@ describe Eve::API::Services::Character do
       end
 
       context "with a character that is not training" do
-        subject { mock_service('xml/character/skill_not_in_training.xml', :user_id => $user_id,
-                                                       :character_id => $character_id,
-                                                       :api_key => $full_api_key).character.skill_in_training }
-
+        subject { mock_service('xml/character/skill_not_in_training.xml',
+                    $character_api_key.merge(:character_id => $character_id)).
+                    character.skill_in_training }
 
         it "should produce a result with #skill_in_training == 0" do
           subject.skill_in_training.should == 0
@@ -33,7 +31,7 @@ describe Eve::API::Services::Character do
       end
     end
 
-    context "without an api key" do
+    context "without an API key" do
       subject { mock_service('xml/character/skill_in_training.xml', {}) }
       
       it "should raise an ArgumentError" do

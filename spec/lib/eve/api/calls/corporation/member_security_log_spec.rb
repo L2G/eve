@@ -2,10 +2,9 @@ require 'spec_helper'
 
 describe Eve::API::Services::Corporation do
   context "#member_security_log" do
-    context "with a valid api key" do
-      subject { mock_service('corporation', 'member_security_log', :user_id => $user_id,
-                                                     :character_id => $character_id,
-                                                     :api_key => $full_api_key) }
+    context "with a valid corporation API key" do
+      subject { mock_service('corporation', 'member_security_log',
+                  $corporation_api_key.merge(:character_id => $character_id)) }
 
       it "should load lists of role changes for members in corporation" do
         subject.role_history.should behave_like_rowset('changeTime,characterID,issuerID,roleLocationType') { |history|
@@ -15,7 +14,7 @@ describe Eve::API::Services::Corporation do
       end
     end
 
-    context "without an api key" do
+    context "without an API key" do
       it "should raise an ArgumentError" do
         proc { mock_service('corporation', 'member_security_log') }.should raise_error(ArgumentError)
       end

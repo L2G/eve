@@ -2,10 +2,9 @@ require 'spec_helper'
 
 describe Eve::API::Services::Corporation do
   context "#kill_log" do
-    context "with a valid api key" do
-      subject { mock_service('corporation', 'kill_log', :user_id => $user_id,
-                                                     :character_id => $character_id,
-                                                     :api_key => $full_api_key) }
+    context "with a valid corporation API key" do
+      subject { mock_service('corporation', 'kill_log',
+                  $corporation_api_key.merge(:character_id => $character_id)) }
 
       it "should provide a kill list" do
         subject.kills.should behave_like_rowset('killID,solarSystemID,killTime,moonID') { |kill|
@@ -18,7 +17,7 @@ describe Eve::API::Services::Corporation do
       end
     end
 
-    context "without an api key" do
+    context "without an API key" do
       it "should raise an ArgumentError" do
         proc { mock_service('corporation', 'kill_log') }.should raise_error(ArgumentError)
       end

@@ -2,11 +2,10 @@ require 'spec_helper'
 
 describe Eve::API::Services::Corporation do
   context "#starbase_detail" do
-    context "with a valid api key" do
-      subject { mock_service('corporation', 'starbase_detail', :user_id => $user_id,
-                                                     :character_id => $character_id,
-                                                     :api_key => $full_api_key,
-                                                     :args => ['1234567890']) }
+    context "with a valid corporation API key" do
+      subject { mock_service('corporation', 'starbase_detail',
+                  $corporation_api_key.merge(:character_id => $character_id,
+                                             :args => ['1234567890'])) }
 
       it "should load starbase details" do
         subject.state.should == 4
@@ -23,7 +22,7 @@ describe Eve::API::Services::Corporation do
       end
     end
 
-    context "without an api key" do
+    context "without an API key" do
       it "should raise an ArgumentError" do
         proc { mock_service('corporation', 'starbase_detail') }.should raise_error(ArgumentError)
       end

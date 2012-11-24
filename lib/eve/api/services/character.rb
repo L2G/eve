@@ -81,11 +81,9 @@ module Eve
 
         def self.included(base)
           base.instance_eval do
-            validate_credentials :limited, :character_id,
+            validate_credentials :character, :character_id,
                                  :for => %w(character_sheet fac_war_stats medals skill_in_training skill_queue standings
-                                           )
-            validate_credentials :full, :character_id,
-                                 :for => %w(account_balance asset_list industry_jobs kill_log mailing_lists
+                                            account_balance asset_list industry_jobs kill_log mailing_lists
                                             mail_messages market_orders notifications research wallet_journal
                                             wallet_transactions journal_entries)
           end

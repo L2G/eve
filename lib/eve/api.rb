@@ -175,7 +175,7 @@ module Eve
     class << self
       def validate_credentials(key_type, *args)
         case key_type
-          when :limited, :full
+          when :character, :corporation
             args.flatten!
             options = args.extract_options!
             method_names = options.delete(:for)
@@ -189,21 +189,21 @@ module Eve
               alias_method_chain method_name, :credential_validation
             end
 
-          else raise ArgumentError, "Expected :limited or :full credential type"
+          else raise ArgumentError, "Expected :character or :corporation credential type"
         end
       end
     end
 
     def validate_credentials(type, *additional_requirements)
-      raise ArgumentError, "user_id is required" unless options[:user_id]
-      raise ArgumentError, "api_key is required" unless options[:api_key]
+      raise ArgumentError, "key_id is required" unless options[:key_id]
+      raise ArgumentError, "v_code is required" unless options[:v_code]
       additional_requirements.each do |r|
         raise ArgumentError, "#{r} is required" unless options[r]
       end
 
       case type
-        when :limited, :full # currently no difference. Wish we could validate on this.
-        else raise ArgumentError, "Expected :limited or :full credential type"
+        when :character, :corporation # currently no difference. Wish we could validate on this.
+        else raise ArgumentError, "Expected :character or :corporation credential type"
       end
     end
     

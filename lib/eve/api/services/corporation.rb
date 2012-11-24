@@ -2,102 +2,102 @@ module Eve
   class API
     module Services
       module Corporation
-        # limited or no API key
+        # character or no API key
         def corporation_sheet(corporation_id = nil)
           request(:corp, :corporation_sheet, {:corporation_id => corporation_id}.optionalize)
         end
 
-        # limited API key
+        # character API key
         def fac_war_stats
-          validate_credentials :limited, :character_id
+          validate_credentials :character, :character_id
           request(:corp, :fac_war_stats)
         end
 
-        # limited API key
+        # character API key
         def medals
-          validate_credentials :limited, :character_id
+          validate_credentials :character, :character_id
           request(:corp, :medals)
         end
 
-        # limited API key
+        # character API key
         def member_medals
-          validate_credentials :limited, :character_id
+          validate_credentials :character, :character_id
           request(:corp, :member_medals)
         end
 
-        # full API key
+        # corporation API key
         def account_balance
-          validate_credentials :full, :character_id
+          validate_credentials :corporation, :character_id
           request(:corp, :account_balance)
         end
 
-        # full API key
+        # corporation API key
         def asset_list
-          validate_credentials :full, :character_id
+          validate_credentials :corporation, :character_id
           request(:corp, :asset_list)
         end
 
-        # full API key
+        # corporation API key
         def container_log
-          validate_credentials :full, :character_id
+          validate_credentials :corporation, :character_id
           request(:corp, :container_log)
         end
 
-        # full API key
+        # corporation API key
         def industry_jobs
-          validate_credentials :full, :character_id
+          validate_credentials :corporation, :character_id
           request(:corp, :industry_jobs)
         end
 
-        # full API key
+        # corporation API key
         def market_orders
-          validate_credentials :full, :character_id
+          validate_credentials :corporation, :character_id
           request(:corp, :market_orders)
         end
 
-        # full API key
+        # corporation API key
         def member_security
-          validate_credentials :full, :character_id
+          validate_credentials :corporation, :character_id
           request(:corp, :member_security)
         end
 
-        # full API key
+        # corporation API key
         def member_security_log
-          validate_credentials :full, :character_id
+          validate_credentials :corporation, :character_id
           request(:corp, :member_security_log)
         end
 
-        # full API key
+        # corporation API key
         def member_tracking
-          validate_credentials :full, :character_id
+          validate_credentials :corporation, :character_id
           request(:corp, :member_tracking)
         end
 
-        # full API key
+        # corporation API key
         def shareholders
-          validate_credentials :full, :character_id
+          validate_credentials :corporation, :character_id
           request(:corp, :shareholders)
         end
 
-        # full API key
+        # corporation API key
         def standings
-          validate_credentials :full, :character_id
+          validate_credentials :corporation, :character_id
           request(:corp, :standings)
         end
 
-        # full API key
+        # corporation API key
         def titles
-          validate_credentials :full, :character_id
+          validate_credentials :corporation, :character_id
           request(:corp, :titles)
         end
 
         def starbase_detail(item_id, version = 2)
-          validate_credentials :full, :character_id
+          validate_credentials :corporation, :character_id
           request(:corp, :starbase_detail, {:item_id => item_id, :version => version})
         end
 
         def starbase_list
-          validate_credentials :full, :character_id
+          validate_credentials :corporation, :character_id
           request(:corp, :starbase_list, :version => 2)
         end
 
@@ -107,7 +107,7 @@ module Eve
         #
         # Walking is disabled by default, so you need to pass the :walk => true option if you wish to enable this.
         def kill_log(options = {})
-          validate_credentials :full, :character_id
+          validate_credentials :corporation, :character_id
           options.reverse_merge!({:walk => false, :walk_id => 'before_kill_id', :walk_association => 'kills' })
           validate_options(options, :walk, :walk_id, :walk_association)
           request(:corp, :kill_log, options)
@@ -119,7 +119,7 @@ module Eve
         #
         # Walking is disabled by default, so you need to pass the :walk => true option if you wish to enable this.
         def wallet_journal(account_key = 1000, options = {})
-          validate_credentials :full, :character_id
+          validate_credentials :corporation, :character_id
           if account_key.kind_of?(Hash)
             options.merge! account_key
             account_key = 1000
@@ -135,7 +135,7 @@ module Eve
         #
         # Walking is disabled by default, so you need to pass the :walk => true option if you wish to enable this.
         def wallet_transactions(account_key = 1000, options = {})
-          validate_credentials :full, :character_id
+          validate_credentials :corporation, :character_id
           if account_key.kind_of?(Hash)
             options.merge! account_key
             account_key = 1000

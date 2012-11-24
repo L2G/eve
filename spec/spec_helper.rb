@@ -55,9 +55,12 @@ cred_hash = !$mock_services && File.file?(keyfile) ? YAML::load(File.read(keyfil
 # accidentally commit your API key that way. Leave the hash below for FAKE data (which
 # is what you'll usually spec with anyways), unless $mock_services == false.
 #
-$user_id         = cred_hash['User ID']         || '01234567890'
-$limited_api_key = cred_hash['Limited API Key'] || 'a_valid_limited_api_key'
-$full_api_key    = cred_hash['Full API Key']    || 'a_valid_full_api_key'
-$character_id    = cred_hash['Character ID']    || '0123456789'
+$character_api_key   = cred_hash['Character Key'] ||
+                                { key_id: 'a_valid_character_key_id',
+                                  v_code: 'a_valid_character_key_vcode' }
+$corporation_api_key = cred_hash['Corporation Key'] ||
+                                { key_id: 'a_valid_character_key_id',
+                                  v_code: 'a_valid_character_key_vcode' }
+$character_id        = cred_hash['Character ID']    || '0123456789'
 
 Dir[File.expand_path(File.join(File.dirname(__FILE__),'support','**','*.rb'))].each { |f| require f }

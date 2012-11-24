@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Eve::API::Services::Account do
   context "#characters" do
-    context "with a valid api key" do
-      subject { mock_service(:account, :characters, :user_id => $user_id, :api_key => $limited_api_key) }
+    context "with a valid character API key" do
+      subject { mock_service(:account, :characters, $character_api_key) }
 
       it "should list account characters" do
         subject.characters.should behave_like_rowset('name,characterID,corporationName,corporationID') { |row|
@@ -13,7 +13,7 @@ describe Eve::API::Services::Account do
       end
     end
 
-    context "without an api key" do
+    context "without an API key" do
       it "should raise an ArgumentError" do
         proc { mock_service(:account, :characters) }.should raise_error(ArgumentError)
       end

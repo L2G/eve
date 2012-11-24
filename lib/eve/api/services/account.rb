@@ -3,7 +3,7 @@ module Eve
     module Services
       module Account
         def characters
-          validate_credentials(:limited)
+          validate_credentials(:character)
           request(:account, :characters)
         end
       end
