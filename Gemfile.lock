@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    eve (2.0.1)
+    eve (3.0.0.a1)
       activesupport (~> 3)
       nokogiri (~> 1)
       sc-core-ext
