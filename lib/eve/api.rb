@@ -13,40 +13,51 @@ module Eve
   #
   # == The Basics
   #
-  # There are two forms of authentication that the API uses: a limited API key and a full API key. For some information,
-  # such as the server's current status, no API key at all is required; for other information, such as which characters
-  # are owned by a particular user account, a limited API key will suffice. For more personal information, such as
-  # a character's transaction history, a full API key is required. Using an inappropriate or missing API key will result
-  # in an error being raised.
+  # Access to most EVE player information requires an API key, which can be
+  # generated at http://api.eveonline.com.  An API key may be created for a
+  # player's character information or corporation, and it may provide access
+  # to all information about the characters/corporation or just a limited
+  # subset defined for the key.  A player may generate an arbitrary number of
+  # keys for different uses and may edit or revoke them at any time.
+  #
+  # Public game information, such as the server's current status, requires no
+  # API key at all.  If access to information requires an API key, but either
+  # no key or a key with insufficient privileges is given, the API call raises
+  # an error.
   #
   # === Instantiation & [Re]Configuration
   # To interface with the Eve API, you need to instantiate the API object. This is simple:
   #   api = Eve::API.new
   #
   # If you plan to make use of information requiring an API key, you'll need to pass in those options:
-  #   api = Eve::API.new(:user_id => 'a_user_id', :api_key => 'an_api_key')
+  #   api = Eve::API.new(:key_id => 'a_key_id', :v_code => 'key_verification_code')
   #
-  # If you need to make use of Character-specific API calls, then you should also pass a +:character_id+ key. Same goes
-  # for Corporation-specific API calls: pass a +corporation_id+ key. If you don't know those yet (for instance, because
-  # you need the user to make a selection), then don't fret. You can always instantiate a new API object, or simply
-  # set the option directly on the API object you've already got:
+  # If you need to make use of Character-specific API calls, then you should
+  # use a Character-type API key and pass a +:character_id+ parameter.  Same
+  # goes for Corporation-specific API calls: use a Corporation-type API key
+  # and pass a +corporation_id+ key parameter. If you don't know those yet
+  # (for instance, because you need the user to make a selection), then don't
+  # fret -- you can always instantiate a new API object, or simply set the
+  # option directly on the existing API object:
   #   api.set(:character_id => 'a_character_id')
   #   # -or-
   #   api[:character_id] = 'a_character_id'
   #
   # === Making API Calls
-  # Actually retrieving information is just as straightforward as instantiation of the API object was, though the syntax
-  # does sometimes vary from one call to the next. Here's how to get the current server status:
+  # Retrieving information is just as straightforward as instantiating the API
+  # object, though the syntax may vary from one call to the next. Here's how
+  # to get the current server status:
   #   status = api.server_status
   #
-  # And retrieving the list of characters belonging to :user_id is done like so:
+  # And retrieving the list of characters belonging to the player:
   #   charlist = api.account.characters
   #
   # === List of API Calls
-  # This section is split into 3 subsections, one for each level of API key required for the call in question. This
-  # table assumes the presence of an "api" object, which is an instantiation of the API object as shown above. For
-  # more information on a particular subset of calls, including the exact return values, click on the corresponding
-  # class name to the left.
+  # This section is split into 3 subsections, one for each level of API key
+  # required for the call in question. This table assumes that the variable
+  # "api" holds an API object instantiated as shown above. For more
+  # information on a particular subset of calls, including the exact return
+  # values, click on the corresponding class name to the left.
   #
   # ==== No API Key
   # Eve::API::Services::Corporation:: api.corporation.corporation_sheet
@@ -71,7 +82,7 @@ module Eve
   # Eve::API::Services::Misc::        api.misc.character_portrait
   # Eve::API::Services::Server::      api.server.server_status
   #
-  # ==== Limited API Key
+  # ==== Character API Key
   # Eve::API::Services::Account::     api.account.characters
   # Eve::API::Services::Character::   api.character.character_sheet
   # Eve::API::Services::Character::   api.character.fac_war_stats
@@ -84,7 +95,7 @@ module Eve
   # Eve::API::Services::Corporation:: api.corporation.medals
   # Eve::API::Services::Corporation:: api.corporation.member_medals
   #
-  # ==== Full API Key
+  # ==== Corporation API Key
   # Eve::API::Services::Character::   api.character.account_balance
   # Eve::API::Services::Character::   api.character.asset_list(version = nil)
   # Eve::API::Services::Character::   api.character.industry_jobs
@@ -134,7 +145,7 @@ module Eve
   # and #server_open.
   #
   # Some fields in a given response are essentially arrays with some additional fields. These are called Rowsets. For
-  # instance, the call to +api.account.characters+, above, returned a response with a #characters method, which
+  # instance, the call to +api.account.characters+ above returned a response with a #characters method, which
   # contained up to 3 characters. Each element, or Row, in a Rowset has in turn its own fields and/or Rowsets. Each
   # character in this example includes a #character_id, #corporation_id, and #corporation_name.
   #
