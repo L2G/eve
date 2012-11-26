@@ -1,0 +1,15 @@
+
+<?xml version='1.0' encoding='UTF-8'?>
+<eveapi version="2">
+  <currentTime>2012-11-25 21:21:31</currentTime>
+  <result>
+    <key accessMask="268435455" type="Account" expires="2013-10-29 00:00:00">
+      <rowset name="characters" key="characterID" columns="characterID,characterName,corporationID,corporationName">
+        <row characterID="92555468" characterName="N-H'mal-Oi Ataru" corporationID="98086823" corporationName="The Grigorians" />
+        <row characterID="1332417978" characterName="Arunui" corporationID="1000170" corporationName="Republic Military School" />
+        <row characterID="1964985550" characterName="klahauss" corporationID="1000165" corporationName="Hedion University" />
+      </rowset>
+    </key>
+  </result>
+  <cachedUntil>2012-11-25 21:26:31</cachedUntil>
+</eveapi>
