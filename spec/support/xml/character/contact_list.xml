@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<eveapi version="2">
+  <currentTime>2012-11-26 01:39:54</currentTime>
+  <result>
+    <rowset name="contactList" key="contactID" columns="contactID,contactName,inWatchlist,standing">
+      <row contactID="3019447" contactName="Gracia Klukken" inWatchlist="False" standing="0" />
+      <row contactID="3019486" contactName="Sudie Gossin" inWatchlist="False" standing="0" />
+      <row contactID="92482485" contactName="Sari Charnoski" inWatchlist="False" standing="-10" />
+      <row contactID="92526196" contactName="Ellsworth Lobach" inWatchlist="True" standing="5" />
+      <row contactID="92555279" contactName="Arnetta Leverone" inWatchlist="True" standing="0" />
+      <row contactID="1344483452" contactName="Boyce Kless" inWatchlist="False" standing="-10" />
+    </rowset>
+    <rowset name="corporateContactList" key="contactID" columns="contactID,contactName,standing">
+      <row contactID="91005893" contactName="Cortez Klan" standing="0" />
+      <row contactID="91533484" contactName="Virgilio" standing="-5" />
+      <row contactID="99001663" contactName="Lorentine" standing="10" />
+    </rowset>
+    <rowset name="allianceContactList" key="contactID" columns="contactID,contactName,standing">
+      <row contactID="1789460651" contactName="Ogilive Collective" standing="0" />
+      <row contactID="1988009451" contactName="Araldi Alliance" standing="5" />
+      <row contactID="2002234305" contactName="Donawa" standing="-10" />
+    </rowset>
+  </result>
+  <cachedUntil>2012-11-26 01:54:54</cachedUntil>
+</eveapi>

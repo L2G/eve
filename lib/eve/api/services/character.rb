@@ -4,6 +4,12 @@ module Eve
       module Character
         #limited API key
         def character_sheet; request(:char, :character_sheet); end
+
+        def contact_list
+          validate_credentials :character, :character_id
+          request(:char, :contact_list)
+        end
+
         #limited API key
         def fac_war_stats; request(:char, :fac_war_stats); end
         #limited API key
