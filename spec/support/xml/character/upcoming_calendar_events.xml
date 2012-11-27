@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<eveapi version="2">
+  <currentTime>2012-11-27 05:23:40</currentTime>
+  <result>
+    <rowset name="upcomingEvents" key="eventID" columns="eventID,ownerID,ownerName,eventDate,eventTitle,duration,importance,response,eventText">
+      <row eventID="100001" ownerID="10000001" ownerName="Mertz Labs" eventDate="2012-12-14 14:40:45" eventTitle="League Bowling Night" duration="60" importance="0" response="Undecided" eventText="Please check the bulletin board for team pairings and handicaps" />
+      <row eventID="100002" ownerID="10000002" ownerName="Universal Media NetWeb" eventDate="2012-11-28 23:00:00" eventTitle="C. Elliot Friday Lecture" duration="0" importance="0" response="Undecided" eventText="A once-in-a-lifetime in-person appearance!" />
+    </rowset>
+  </result>
+  <cachedUntil>2012-11-27 06:20:40</cachedUntil>
+</eveapi>

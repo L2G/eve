@@ -10,6 +10,11 @@ module Eve
           request(:char, :contact_list)
         end
 
+        def upcoming_calendar_events
+          validate_credentials :character, :character_id
+          request(:char, :upcoming_calendar_events)
+        end
+
         #limited API key
         def fac_war_stats; request(:char, :fac_war_stats); end
         #limited API key
