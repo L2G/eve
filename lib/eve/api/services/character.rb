@@ -2,29 +2,14 @@ module Eve
   class API
     module Services
       module Character
-        #limited API key
         def character_sheet; request(:char, :character_sheet); end
-
-        def contact_list
-          validate_credentials :character, :character_id
-          request(:char, :contact_list)
-        end
-
-        def upcoming_calendar_events
-          validate_credentials :character, :character_id
-          request(:char, :upcoming_calendar_events)
-        end
-
-        #limited API key
+        def contact_list; request(:char, :contact_list); end
         def fac_war_stats; request(:char, :fac_war_stats); end
-        #limited API key
         def medals; request(:char, :medals); end
-        #limited API key
         def skill_in_training; request(:char, :skill_in_training); end
-        #limited API key
         def skill_queue; request(:char, :skill_queue); end
-        #limited API key
         def standings; request(:char, :standings); end
+        def upcoming_calendar_events; request(:char, :upcoming_calendar_events); end
 
         # full API key
         def account_balance; request(:char, :account_balance); end
@@ -93,9 +78,9 @@ module Eve
         def self.included(base)
           base.instance_eval do
             validate_credentials :character, :character_id,
-                                 :for => %w(character_sheet fac_war_stats medals skill_in_training skill_queue standings
+                                 :for => %w(character_sheet contact_list fac_war_stats medals skill_in_training skill_queue standings
                                             account_balance asset_list industry_jobs kill_log mailing_lists
-                                            mail_messages market_orders notifications research wallet_journal
+                                            mail_messages market_orders notifications research upcoming_calendar_events wallet_journal
                                             wallet_transactions journal_entries)
           end
         end
